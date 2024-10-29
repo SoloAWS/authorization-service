@@ -12,7 +12,7 @@ version = "1.0"
 
 @app.get("/auth/health")
 async def health():
-    return {"status": "OK Python"}
+    return {"status": "OK authorization"}
 
 @app.exception_handler(ApiError)
 async def api_error_exception_handler(request: Request, exc: ApiError):
