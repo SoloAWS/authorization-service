@@ -1,18 +1,14 @@
-import os
 from fastapi import FastAPI, Request, APIRouter
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
-
 from .errors.errors import ApiError
+from .routers import auth
 
 app = FastAPI()
-
 version = "1.0"
 
-
-@app.get("/auth/health")
-async def health():
-    return {"status": "OK authorization"}
+# Include the auth router
+app.include_router(auth.router)
 
 @app.exception_handler(ApiError)
 async def api_error_exception_handler(request: Request, exc: ApiError):
