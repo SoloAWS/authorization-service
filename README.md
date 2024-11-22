@@ -32,3 +32,9 @@ uvicorn app.main:app --reload --port 8008
 ```
 
 The service will be available at `http://localhost:8008`.
+
+## Test Application
+
+```bash
+python -m pytest --cov-fail-under=70 --cov=app 
+```
